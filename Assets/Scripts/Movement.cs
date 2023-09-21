@@ -30,7 +30,7 @@ public class Movement : MonoBehaviour
         // Animation Calculations
         animator.SetFloat("Horizontal", Input.GetAxisRaw("Horizontal"));
         animator.SetFloat("Vertical", Input.GetAxisRaw("Vertical"));
-
+        
         // Movement Calculations
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
