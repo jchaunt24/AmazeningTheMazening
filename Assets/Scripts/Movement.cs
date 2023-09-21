@@ -34,6 +34,14 @@ public class Movement : MonoBehaviour
         // Movement Calculations
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+        if((movement.x == 1) || (movement.x == -1)){
+            movement.y = 0;
+            animator.SetFloat("Vertical", 0);
+        }
+        else{
+            movement.x = 0;
+            animator.SetFloat("Horizontal", 0);
+        }
     }
 
     void FixedUpdate(){
