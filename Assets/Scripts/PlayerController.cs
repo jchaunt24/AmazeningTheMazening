@@ -9,9 +9,9 @@ Project: Movement
 Video: https://www.youtube.com/watch?v=whzomFgjT50&t=426s
 */
 
-public class Movement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    
+    public static PlayerController Instance {get; private set;}
     // Move Speed
     public float moveSpeed = 5f;
 
@@ -23,6 +23,16 @@ public class Movement : MonoBehaviour
 
     // Animator
     public Animator animator; 
+
+    private void Awake(){
+        if(Instance == null){
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else{
+            Destroy(gameObject);
+        }
+    }
 
     // Update is called once per frame
     void Update()
