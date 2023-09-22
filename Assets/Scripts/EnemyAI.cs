@@ -20,6 +20,7 @@ public class EnemyAI : MonoBehaviour
     public int enemyID;
 
     private float distance;
+    public Rigidbody2D rb;
 
     void Start(){
         
@@ -45,5 +46,8 @@ public class EnemyAI : MonoBehaviour
                 transform.position = Vector2.MoveTowards(enemyposition, playerPosition,speed *Time.deltaTime);
             }
         }
+    }
+    void OnCollisionEnter2D(Collision2D collision){
+        rb.AddForce(transform.up * 2, ForceMode2D.Impulse);
     }
 }

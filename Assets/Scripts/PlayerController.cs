@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     // Animator
     public Animator animator; 
 
+    public int hp;
+
 
     private void Awake(){
         if(Instance == null){
@@ -61,5 +63,9 @@ public class PlayerController : MonoBehaviour
     // moves player
     void FixedUpdate(){
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    void OnCollisionEnter2D(Collision2D collision){
+        hp -= 1;
     }
 }
