@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance {get; private set;}
     // Move Speed
-    public float moveSpeed = 5f;
+    private float moveSpeed = 10f;
 
     // Player Rigid Body
     public Rigidbody2D rb;
@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
 
     // Animator
     public Animator animator; 
+
 
     private void Awake(){
         if(Instance == null){
@@ -44,6 +45,8 @@ public class PlayerController : MonoBehaviour
         // Movement Calculations
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+
+        // only one input per axis of movement at one time
         if((movement.x == 1) || (movement.x == -1)){
             movement.y = 0;
             animator.SetFloat("Vertical", 0);
@@ -52,8 +55,10 @@ public class PlayerController : MonoBehaviour
             movement.x = 0;
             animator.SetFloat("Horizontal", 0);
         }
+        
     }
 
+    // moves player
     void FixedUpdate(){
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }

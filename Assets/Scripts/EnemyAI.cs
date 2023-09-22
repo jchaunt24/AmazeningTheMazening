@@ -17,6 +17,8 @@ public class EnemyAI : MonoBehaviour
     Vector2 playerPosition;
     Vector2 enemyposition;
 
+    public int enemyID;
+
     private float distance;
 
     void Start(){
@@ -32,8 +34,16 @@ public class EnemyAI : MonoBehaviour
         Vector2 direction = enemyposition - playerPosition;
         direction.Normalize();
 
-        if(distance < 15){
-            transform.position = Vector2.MoveTowards(enemyposition, playerPosition,speed *Time.deltaTime);
+
+        if(enemyID == 1){
+            if(distance < 10){
+                transform.position = Vector2.MoveTowards(enemyposition, playerPosition,speed *Time.deltaTime);
+            }   
+        }
+        else if(enemyID == 2){
+            if(distance < 30){
+                transform.position = Vector2.MoveTowards(enemyposition, playerPosition,speed *Time.deltaTime);
+            }
         }
     }
 }

@@ -13,12 +13,10 @@ public class GameManager : MonoBehaviour
 */
     // Start is called before the first frame update
     public GameObject slime;
+    public GameObject spider;
+    public GameObject door;
     void Start()
     {
-        Instantiate(slime);
-        Instantiate(slime);
-        Instantiate(slime);
-        Instantiate(slime);
     }
 
     // Update is called once per frame
