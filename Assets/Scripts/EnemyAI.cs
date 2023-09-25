@@ -42,12 +42,15 @@ public class EnemyAI : MonoBehaviour
             }   
         }
         else if(enemyID == 2){
-            if(distance < 30){
+            if(distance < 15){
                 transform.position = Vector2.MoveTowards(enemyposition, playerPosition,speed *Time.deltaTime);
             }
         }
-    }
-    void OnCollisionEnter2D(Collision2D collision){
-        rb.AddForce(transform.up * 2, ForceMode2D.Impulse);
+        else if(enemyID == 3){
+            if(distance < 25){
+                transform.position = Vector2.MoveTowards(enemyposition, playerPosition,speed *Time.deltaTime);
+            }
+
+        }
     }
 }
