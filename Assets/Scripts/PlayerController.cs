@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance {get; private set;}
     // Move Speed
-    private float moveSpeed = 10f;
+    private float moveSpeed = 2f;
 
     // Player Rigid Body
     public Rigidbody2D rb;
