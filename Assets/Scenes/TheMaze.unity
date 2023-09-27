@@ -94880,6 +94880,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 645791887064063472, guid: df9de359437670246a2d9e7710c423da, type: 3}
+      propertyPath: m_Size.y
+      value: 19.00769
+      objectReference: {fileID: 0}
+    - target: {fileID: 645791887064063472, guid: df9de359437670246a2d9e7710c423da, type: 3}
+      propertyPath: m_Offset.y
+      value: 6.3203983
+      objectReference: {fileID: 0}
+    - target: {fileID: 2473335095087505248, guid: df9de359437670246a2d9e7710c423da, type: 3}
+      propertyPath: m_Size.y
+      value: 19.043541
+      objectReference: {fileID: 0}
+    - target: {fileID: 2473335095087505248, guid: df9de359437670246a2d9e7710c423da, type: 3}
+      propertyPath: m_Offset.y
+      value: 6.3067837
+      objectReference: {fileID: 0}
     - target: {fileID: 3636827282775828628, guid: df9de359437670246a2d9e7710c423da, type: 3}
       propertyPath: m_Name
       value: RoomTransferX
