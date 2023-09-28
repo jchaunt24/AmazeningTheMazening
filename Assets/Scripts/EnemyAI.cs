@@ -21,6 +21,9 @@ public class EnemyAI : MonoBehaviour
 
     private float distance;
     public Rigidbody2D rb;
+    private float thrust = 5.0f;
+    public bool targetcollision;
+    public Collider2D collider;
 
     void Start(){
         
@@ -34,29 +37,42 @@ public class EnemyAI : MonoBehaviour
         distance = Vector2.Distance(enemyposition, playerPosition);
         Vector2 direction = enemyposition - playerPosition;
         direction.Normalize();
-
-
         if(enemyID == 1){
-            if(distance < 10){
+            if(distance < 5){
                 transform.position = Vector2.MoveTowards(enemyposition, playerPosition,speed *Time.deltaTime);
             }   
         }
         else if(enemyID == 2){
-            if(distance < 15){
+            if(distance < 8){
                 transform.position = Vector2.MoveTowards(enemyposition, playerPosition,speed *Time.deltaTime);
             }
         }
         else if(enemyID == 3){
-            if(distance < 25){
+            if(distance < 10){
                 transform.position = Vector2.MoveTowards(enemyposition, playerPosition,speed *Time.deltaTime);
             }
-
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other){
-        if(other.CompareTag("Player")){
-            Destroy(gameObject);
+    void OnCollisionEnter2D(Collision2D other){
+        if(other.gameObject.CompareTag("Player")){
+            Vector3 contactPoint = other.contacts[0].point;
+            Vector3 center = other.collider.bounds.center;
+            targetcollision = true;
+            bool right = contactPoint.x > center.x;
+            bool left = contactPoint.x < center.x;
+            bool top = contactPoint.y > center.y;
+            bool bottom = contactPoint.y < center.y;
+
+            if(right) GetComponent<Rigidbody2D>().AddForce(transform.right * thrust,ForceMode2D.Impulse);
+            if(left) GetComponent<Rigidbody2D>().AddForce(-transform.right * thrust,ForceMode2D.Impulse);
+            if(top) GetComponent<Rigidbody2D>().AddForce(transform.up * thrust,ForceMode2D.Impulse);
+            if(left) GetComponent<Rigidbody2D>().AddForce(-transform.right * thrust,ForceMode2D.Impulse);
         }
+    }
+
+    void FalseCollision(){
+        targetcollision = false;
+        GetComponent<Rigidbody2D>().velocity = Vector3.zero;
     }
 }
