@@ -14,7 +14,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     public GameObject slime;
     public GameObject spider;
+    public GameObject BlueSlime;
     public GameObject door;
+    public int count;
+    public float Timer;
     void Start()
     {
     }
@@ -22,6 +25,13 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+    Timer -= Time.deltaTime;
+        if (Timer <= 0f)
+        {
+            Random.Range(1,3);
+
+            Timer = 2f;
+            //Instantiate();
+        }
     }
 }
