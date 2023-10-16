@@ -11,6 +11,7 @@ Video: https://www.youtube.com/watch?v=whzomFgjT50&t=426s
 
 public class PlayerController : MonoBehaviour
 {
+    private GameManager gameManager;
     public static PlayerController Instance {get; private set;}
     // Move Speed
     private float moveSpeed = 2f;
@@ -26,7 +27,9 @@ public class PlayerController : MonoBehaviour
 
     public int hp;
 
-
+    void Start(){
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
     private void Awake(){
         if(Instance == null){
             Instance = this;
@@ -65,7 +68,9 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 
-    void OnCollisionEnter2D(Collision2D collision){
-        hp -= 1;
+    public void OnTriggerEnter2D(Collider2D other){
+        if(other.CompareTag("Enemy")){
+           gameManager.UpdateHealth(-1);
+        }
     }
 }
