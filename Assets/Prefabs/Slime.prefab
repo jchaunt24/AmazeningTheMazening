@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2652849364127945178}
   - component: {fileID: 4575670074036320561}
   - component: {fileID: 6675725823764295417}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slime
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -199,6 +199,8 @@ MonoBehaviour:
   rb: {fileID: 2652849364127945178}
   targetcollision: 0
   collider: {fileID: 0}
+  health: 0
+  timer: 0
 --- !u!61 &6675725823764295417
 BoxCollider2D:
   m_ObjectHideFlags: 0

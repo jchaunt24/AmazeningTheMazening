@@ -21,12 +21,22 @@ public class EnemyAI : MonoBehaviour
 
     private float distance;
     public Rigidbody2D rb;
-    private float thrust = 5.0f;
+    private float thrust = 2.0f;
     public bool targetcollision;
     public Collider2D collider;
+    public int health;
+
+    // Timer for Self Destruction
+
+    public float timer;
 
     void Start(){
-        
+        if(enemyID == 1){
+            health = 15;
+        }   
+        if(enemyID == 2){
+            health = 6;
+        }
     }
         
     // Update is called once per frame
@@ -52,6 +62,18 @@ public class EnemyAI : MonoBehaviour
                 transform.position = Vector2.MoveTowards(enemyposition, playerPosition,speed *Time.deltaTime);
             }
         }
+        timer += Time.deltaTime;
+        if(timer >= 30){
+            Destroy(gameObject);
+        }
+        if(health <= 0){
+            Destroy(gameObject);
+        }
+    }
+
+    public void TakeDamage(int damage){
+        health -= damage;
+        Debug.Log("Damage Taken!!");
     }
 
     void OnCollisionEnter2D(Collision2D other){

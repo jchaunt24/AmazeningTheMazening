@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7028599460047641449}
   - component: {fileID: 3463407901324600043}
   - component: {fileID: 5961156650158503649}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spider
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -127,6 +127,8 @@ MonoBehaviour:
   rb: {fileID: 3463407901324600043}
   targetcollision: 0
   collider: {fileID: 7028599460047641449}
+  health: 0
+  timer: 0
 --- !u!61 &7028599460047641449
 BoxCollider2D:
   m_ObjectHideFlags: 0
