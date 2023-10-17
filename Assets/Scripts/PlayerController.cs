@@ -11,6 +11,7 @@ Video: https://www.youtube.com/watch?v=whzomFgjT50&t=426s
 
 public class PlayerController : MonoBehaviour
 {
+    private Animator playeranim;
     private GameManager gameManager;
     public static PlayerController Instance {get; private set;}
     // Move Speed
