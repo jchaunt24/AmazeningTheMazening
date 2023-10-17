@@ -80,4 +80,8 @@ public class GameManager : MonoBehaviour
             gameOver.SetActive(true);
         }
     }
+
+    public void AddScore(int scoreToAdd){
+        score = score += scoreToAdd;
+    }
 }

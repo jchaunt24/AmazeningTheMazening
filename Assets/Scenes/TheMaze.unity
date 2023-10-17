@@ -52800,8 +52800,8 @@ MonoBehaviour:
   whatIsEnemies:
     serializedVersion: 2
     m_Bits: 64
-  attackRange: 1
-  damage: 3
+  attackRange: 1.25
+  damage: 4
 --- !u!1001 &1137904728
 PrefabInstance:
   m_ObjectHideFlags: 0

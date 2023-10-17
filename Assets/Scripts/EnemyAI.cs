@@ -19,6 +19,7 @@ public class EnemyAI : MonoBehaviour
 
     public int enemyID;
 
+    private GameManager gameManager;
     private float distance;
     public Rigidbody2D rb;
     private float thrust = 2.0f;
@@ -37,6 +38,7 @@ public class EnemyAI : MonoBehaviour
         if(enemyID == 2){
             health = 6;
         }
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
         
     // Update is called once per frame
@@ -74,6 +76,7 @@ public class EnemyAI : MonoBehaviour
     public void TakeDamage(int damage){
         health -= damage;
         Debug.Log("Damage Taken!!");
+        gameManager.GetComponent<GameManager>().AddScore(5);
     }
 
     void OnCollisionEnter2D(Collision2D other){
