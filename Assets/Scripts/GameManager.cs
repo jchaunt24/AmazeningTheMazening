@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     Project: Movement
 */
     // Start is called before the first frame update
+
     // Score Counter Display
     public int score;
     public TextMeshProUGUI displayScore;
@@ -32,8 +33,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {  
         // States what the Original Values are to the player
-        score = 101;
-        health = 20;
+        health = 100;
         displayScore.text = "Score: " + score;
         displayHealth.text = "Health: " + health;
     }
@@ -43,12 +43,12 @@ public class GameManager : MonoBehaviour
     {
         // Score Counter and Game Over Timer
         Timer -= Time.deltaTime;
+        displayScore.text = "Score: " + score;
         if (Timer <= 0f)
         {
-            score -= 1;
-            displayScore.text = "Score: " + score;
+            health -= 1;
             Timer = 1.5f;
-            if(score < 1){
+            if(health < 1){
                 gameOver.SetActive(true);
             }
 
@@ -76,9 +76,10 @@ public class GameManager : MonoBehaviour
     public void UpdateHealth(int healthToChange){
         health = health + healthToChange;
         displayHealth.text = "Health: " + health;
-        if(health < 1){
-            gameOver.SetActive(true);
-        }
+    }
+
+    public void DeathParticiles(Vector3 EnemyPosition){
+        
     }
 
     public void AddScore(int scoreToAdd){

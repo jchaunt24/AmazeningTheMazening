@@ -11,7 +11,7 @@ Video: https://www.youtube.com/watch?v=whzomFgjT50&t=426s
 
 public class PlayerController : MonoBehaviour
 {
-    private Animator playeranim;
+    
     private GameManager gameManager;
     public static PlayerController Instance {get; private set;}
     // Move Speed
@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
     public Animator animator; 
 
     public int hp;
+    public float attackTimerCoolDown;
+    public bool canMove;
 
     void Start(){
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -62,6 +64,17 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat("Horizontal", 0);
         }
         
+        if(canMove == false){
+            moveSpeed = 0f;
+            animator.SetFloat("Horizontal", 0);
+            animator.SetFloat("Vertical", 0);
+            attackTimerCoolDown -= Time.deltaTime;
+            if (attackTimerCoolDown <= 0f)
+            {
+                moveSpeed = 2f;
+                canMove = true;
+            }
+        }
     }
 
     // moves player
@@ -69,6 +82,12 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 
+    public void AttackAnim(bool attacking){
+        if(attacking == true){
+            attackTimerCoolDown = 1f;
+            canMove = false;
+        }
+    }
     public void OnTriggerEnter2D(Collider2D other){
         if(other.CompareTag("Enemy")){
            gameManager.UpdateHealth(-1);

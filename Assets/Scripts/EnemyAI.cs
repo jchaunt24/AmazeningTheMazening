@@ -18,26 +18,21 @@ public class EnemyAI : MonoBehaviour
     Vector2 enemyposition;
 
     public int enemyID;
-
+    public ParticleSystem gooParticle;
     private GameManager gameManager;
     private float distance;
     public Rigidbody2D rb;
-    private float thrust = 2.0f;
-    public bool targetcollision;
+    //private float thrust = 2.0f;
+    //public bool targetcollision;
     public Collider2D collider;
     public int health;
+
+    public bool colliding;
 
     // Timer for Self Destruction
 
     public float timer;
-
     void Start(){
-        if(enemyID == 1){
-            health = 15;
-        }   
-        if(enemyID == 2){
-            health = 6;
-        }
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
         
@@ -69,35 +64,40 @@ public class EnemyAI : MonoBehaviour
             Destroy(gameObject);
         }
         if(health <= 0){
-            Destroy(gameObject);
+            Destroy(gameObject,1);
         }
+
+        if(colliding){
+            speed = 0f;
+        }
+        else{
+            if(enemyID == 1){
+                speed = 1.5f;
+            }
+            if(enemyID == 2){
+                speed = 3f;
+            }
+        }
+
     }
 
     public void TakeDamage(int damage){
         health -= damage;
         Debug.Log("Damage Taken!!");
         gameManager.GetComponent<GameManager>().AddScore(5);
+        
     }
+
 
     void OnCollisionEnter2D(Collision2D other){
         if(other.gameObject.CompareTag("Player")){
-            Vector3 contactPoint = other.contacts[0].point;
-            Vector3 center = other.collider.bounds.center;
-            targetcollision = true;
-            bool right = contactPoint.x > center.x;
-            bool left = contactPoint.x < center.x;
-            bool top = contactPoint.y > center.y;
-            bool bottom = contactPoint.y < center.y;
-
-            if(right) GetComponent<Rigidbody2D>().AddForce(transform.right * thrust,ForceMode2D.Impulse);
-            if(left) GetComponent<Rigidbody2D>().AddForce(-transform.right * thrust,ForceMode2D.Impulse);
-            if(top) GetComponent<Rigidbody2D>().AddForce(transform.up * thrust,ForceMode2D.Impulse);
-            if(left) GetComponent<Rigidbody2D>().AddForce(-transform.right * thrust,ForceMode2D.Impulse);
+            colliding = true;
+            gooParticle.Play();
         }
     }
 
-    void FalseCollision(){
-        targetcollision = false;
-        GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+    void OnCollisionExit2D(){
+        colliding = false;
     }
+
 }
