@@ -25,8 +25,6 @@ public class GameManager : MonoBehaviour
     // Gamer Over and Enemy Spawning
     public GameObject gameOver;
     public float Timer;
-    public float enemyTimer;
-
     // Enemt Prefab List
     public GameObject[] enemyPrefabs;
     // Locations for enemy spawn
@@ -54,22 +52,7 @@ public class GameManager : MonoBehaviour
 
         }
         // Enemy Spawner
-        enemyTimer -= Time.deltaTime;
-        if(enemyTimer <= 0){
-            int enemyIndex = Random.Range(0,enemyPrefabs.Length);
-            //Room 1
-            Instantiate(enemyPrefabs[enemyIndex],new Vector3(-8,10,0), enemyPrefabs[enemyIndex].transform.rotation);
-            // Room 2
-            Instantiate(enemyPrefabs[enemyIndex],new Vector3(14,12,0), enemyPrefabs[enemyIndex].transform.rotation);
-            // Room 3
-            Instantiate(enemyPrefabs[enemyIndex],new Vector3(14,2,0), enemyPrefabs[enemyIndex].transform.rotation);
-
-            // Boss Room 1
-            Instantiate(enemyPrefabs[enemyIndex],new Vector3(-4,35,0), enemyPrefabs[enemyIndex].transform.rotation);
-            Instantiate(enemyPrefabs[enemyIndex],new Vector3(18,35,0), enemyPrefabs[enemyIndex].transform.rotation);
-            Instantiate(enemyPrefabs[enemyIndex],new Vector3(6,25,0), enemyPrefabs[enemyIndex].transform.rotation);
-            enemyTimer = 10;
-        }
+        
     }
 
     // Player Health System
@@ -78,9 +61,6 @@ public class GameManager : MonoBehaviour
         displayHealth.text = "Health: " + health;
     }
 
-    public void DeathParticiles(Vector3 EnemyPosition){
-        
-    }
 
     public void AddScore(int scoreToAdd){
         score = score += scoreToAdd;

@@ -60,12 +60,15 @@ public class EnemyAI : MonoBehaviour
             }
         }
         timer += Time.deltaTime;
-        if(timer >= 30){
-            Destroy(gameObject);
+        if(enemyID != 3){
+            if(timer >= 30){
+                Destroy(gameObject);
+            }
         }
         if(health <= 0){
-            Destroy(gameObject,1);
+            Destroy(gameObject);
         }
+        
 
         if(colliding){
             speed = 0f;
@@ -76,6 +79,9 @@ public class EnemyAI : MonoBehaviour
             }
             if(enemyID == 2){
                 speed = 3f;
+            }
+            if(enemyID == 3){
+                speed = .5f;
             }
         }
 
