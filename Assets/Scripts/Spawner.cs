@@ -7,6 +7,7 @@ public class Spawner : MonoBehaviour
     Vector3 spawnerPosition;
     public GameObject[] enemyPrefabs;
     public float timer;
+    public float spawnTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +19,7 @@ public class Spawner : MonoBehaviour
     {
         spawnerPosition = transform.position;
         timer += Time.deltaTime;
-        if(timer >= 5){
+        if(timer >= spawnTime){
             int enemySpawnRandimizerOne = Random.Range(0,1);
             int enemySpawnRandimizerTwo = Random.Range(0,1);
             int enemyIndex = Random.Range(0,enemyPrefabs.Length);
