@@ -25,33 +25,42 @@ public class GameManager : MonoBehaviour
     // Gamer Over and Enemy Spawning
     public GameObject gameOver;
     public float Timer;
+    public GameObject game
     // Enemt Prefab List
     public GameObject[] enemyPrefabs;
-    // Locations for enemy spawn
+
+    // Game Paused
+    public bool gamePaused = false; 
+
     void Start()
     {  
         // States what the Original Values are to the player
         health = 100;
         displayScore.text = "Score: " + score;
         displayHealth.text = "Health: " + health;
+        gamePaused = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Score Counter and Game Over Timer
-        Timer -= Time.deltaTime;
-        displayScore.text = "Score: " + score;
-        if (Timer <= 0f)
-        {
-            health -= 1;
-            Timer = 1.5f;
-            if(health < 1){
-                gameOver.SetActive(true);
+        if(gamePaused == false){
+            // Score Counter and Game Over Timer
+            Timer -= Time.deltaTime;
+            displayScore.text = "Score: " + score;
+            if (Timer <= 0f)
+            {
+                health -= 1;
+                Timer = 1.5f;
+                if(health < 1){
+                    gameOver.SetActive(true);
+                }
+
             }
+        }
+        else{
 
         }
-        // Enemy Spawner
         
     }
 
