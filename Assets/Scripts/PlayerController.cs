@@ -97,5 +97,12 @@ public class PlayerController : MonoBehaviour
         if(other.CompareTag("Enemy")){
            gameManager.UpdateHealth(-1);
         }
+        else if(other.CompareTag("Hp")){
+           gameManager.UpdateHealth(10);
+        }
+        else if(other.CompareTag("Score")){
+           gameManager.AddScore(5);
+        }
     }
+    
 }
