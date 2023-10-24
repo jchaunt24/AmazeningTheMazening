@@ -25,7 +25,8 @@ public class GameManager : MonoBehaviour
     // Gamer Over and Enemy Spawning
     public GameObject gameOver;
     public float Timer;
-    public GameObject game
+    public GameObject gameDisplay;
+    public GameObject gameTitle;
     // Enemt Prefab List
     public GameObject[] enemyPrefabs;
 
@@ -73,5 +74,17 @@ public class GameManager : MonoBehaviour
 
     public void AddScore(int scoreToAdd){
         score = score += scoreToAdd;
+    }
+    
+    // Pause and title Screen
+    public void Pause(){
+        gamePaused = true;
+        gameDisplay.SetActive(false);
+        gameTitle.SetActive(true);
+    }
+    public void Play(){
+        gamePaused = false;
+        gameDisplay.SetActive(true);
+        gameTitle.SetActive(false);
     }
 }
