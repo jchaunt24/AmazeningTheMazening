@@ -91,7 +91,7 @@ public class EnemyAI : MonoBehaviour
         health -= damage;
         Debug.Log("Damage Taken!!");
         gameManager.GetComponent<GameManager>().AddScore(5);
-        
+        gameManager.GetComponent<GameManager>().DropItem(gameObject.transform);
     }
 
 

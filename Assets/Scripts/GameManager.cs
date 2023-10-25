@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameTitle;
     // Enemt Prefab List
     public GameObject[] enemyPrefabs;
+    public GameObject[] drops;
 
     // Game Paused
     public bool gamePaused = false; 
@@ -47,22 +48,17 @@ public class GameManager : MonoBehaviour
     {
         if(gamePaused == false){
             // Score Counter and Game Over Timer
+            displayHealth.text = "Health: " + health;
             Timer -= Time.deltaTime;
             displayScore.text = "Score: " + score;
             if (Timer <= 0f)
             {
-                health -= 1;
                 Timer = 1.5f;
                 if(health < 1){
                     gameOver.SetActive(true);
                 }
-
             }
         }
-        else{
-
-        }
-        
     }
 
     // Player Health System
@@ -86,5 +82,9 @@ public class GameManager : MonoBehaviour
         gamePaused = false;
         gameDisplay.SetActive(true);
         gameTitle.SetActive(false);
+    }
+    public void DropItem(Transform transform){
+        int randomItemNumber = Random.Range(0,1);
+        Instantiate(drops[randomItemNumber],transform.position, drops[randomItemNumber].transform.rotation);
     }
 }
