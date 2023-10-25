@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
         gameTitle.SetActive(false);
     }
     public void DropItem(Transform transform){
-        int randomItemNumber = Random.Range(0,1);
+        int randomItemNumber = Random.Range(0,2);
         Instantiate(drops[randomItemNumber],transform.position, drops[randomItemNumber].transform.rotation);
     }
 }
