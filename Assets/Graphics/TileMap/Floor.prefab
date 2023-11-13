@@ -977,8 +977,13 @@ Tilemap:
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+<<<<<<< HEAD
   m_Origin: {x: 1, y: -5, z: 0}
   m_Size: {x: 23, y: 8, z: 1}
+=======
+  m_Origin: {x: 1, y: -1, z: 0}
+  m_Size: {x: 17, y: 4, z: 1}
+>>>>>>> 8635f642c43b009b9ecb059e3ce286980a754f19
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -1047,7 +1052,11 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+<<<<<<< HEAD
 --- !u!114 &2314498126242906417
+=======
+--- !u!114 &4804809499682839407
+>>>>>>> 8635f642c43b009b9ecb059e3ce286980a754f19
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
