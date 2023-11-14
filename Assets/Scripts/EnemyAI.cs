@@ -39,52 +39,53 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerPosition = PlayerController.Instance.transform.position;
-        enemyposition = transform.position;
-        distance = Vector2.Distance(enemyposition, playerPosition);
-        Vector2 direction = enemyposition - playerPosition;
-        direction.Normalize();
-        if(enemyID == 1){
-            if(distance < 5){
-                transform.position = Vector2.MoveTowards(enemyposition, playerPosition,speed *Time.deltaTime);
-            }   
-        }
-        else if(enemyID == 2){
-            if(distance < 8){
-                transform.position = Vector2.MoveTowards(enemyposition, playerPosition,speed *Time.deltaTime);
+        if(gameManager.gamePaused == false){
+            playerPosition = PlayerController.Instance.transform.position;
+            enemyposition = transform.position;
+            distance = Vector2.Distance(enemyposition, playerPosition);
+            Vector2 direction = enemyposition - playerPosition;
+            direction.Normalize();
+            if(enemyID == 1){
+                if(distance < 5){
+                    transform.position = Vector2.MoveTowards(enemyposition, playerPosition,speed *Time.deltaTime);
+                }   
             }
-        }
-        else if(enemyID == 3){
-            if(distance < 10){
-                transform.position = Vector2.MoveTowards(enemyposition, playerPosition,speed *Time.deltaTime);
+            else if(enemyID == 2){
+                if(distance < 8){
+                    transform.position = Vector2.MoveTowards(enemyposition, playerPosition,speed *Time.deltaTime);
+                }
             }
-        }
-        timer += Time.deltaTime;
-        if(enemyID != 3){
-            if(timer >= 30){
+            else if(enemyID == 3){
+                if(distance < 10){
+                    transform.position = Vector2.MoveTowards(enemyposition, playerPosition,speed *Time.deltaTime);
+                }
+            }
+            timer += Time.deltaTime;
+            if(enemyID != 3){
+                if(timer >= 30){
+                    Destroy(gameObject);
+                }
+            }
+            if(health <= 0){
                 Destroy(gameObject);
             }
-        }
-        if(health <= 0){
-            Destroy(gameObject);
-        }
-        
+            
 
-        if(colliding){
-            speed = 0f;
+            if(colliding){
+                speed = 0f;
+            }
+            else{
+                if(enemyID == 1){
+                    speed = 1.5f;
+                }
+                if(enemyID == 2){
+                    speed = 3f;
+                }
+                if(enemyID == 3){
+                    speed = .5f;
+                }
+            }
         }
-        else{
-            if(enemyID == 1){
-                speed = 1.5f;
-            }
-            if(enemyID == 2){
-                speed = 3f;
-            }
-            if(enemyID == 3){
-                speed = .5f;
-            }
-        }
-
     }
 
     public void TakeDamage(int damage){
