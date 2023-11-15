@@ -24,7 +24,6 @@ public class PlayerController : MonoBehaviour
     public Animator animator; 
 
     // Combat Related
-    public int hp;
     public float attackTimerCoolDown;
 
     
@@ -98,7 +97,7 @@ public class PlayerController : MonoBehaviour
            gameManager.UpdateHealth(-1);
         }
         else if(other.CompareTag("Hp")){
-           gameManager.UpdateHealth(10);
+           gameManager.UpdateHealth(2);
         }
         else if(other.CompareTag("Score")){
            gameManager.AddScore(5);

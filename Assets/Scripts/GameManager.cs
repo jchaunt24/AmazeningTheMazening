@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {  
         // States what the Original Values are to the player
-        health = 100;
+        health = 10;
         displayScore.text = "Score: " + score;
         displayHealth.text = "Health: " + health;
         gamePaused = true;

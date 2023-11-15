@@ -29,30 +29,18 @@ public class Spawner : MonoBehaviour
             timer += Time.deltaTime;
             if(timer >= spawnTime){
                 // Calculations for where the enemy will spawn, on what side of the spawner
-                int enemySpawnRandimizerOne = Random.Range(0,1);
-                int enemySpawnRandimizerTwo = Random.Range(0,1);
-                // Decides which enemy on the list to spawn
-                int enemyIndex = Random.Range(0,enemyPrefabs.Length);
-
-                // Offsets on where the enemy will spawn
-                Vector3 offset = new Vector3(0,0,0);
-                if(enemySpawnRandimizerOne == 1){
-                    offset.y = 1;
+                for(int i = 0; i < 2; i++){
+                    int enemySpawnRandimizerOne = Random.Range(-2,3);
+                    int enemySpawnRandimizerTwo = Random.Range(-2,3);
+                    // Decides which enemy on the list to spawn
+                    int enemyIndex = Random.Range(0,enemyPrefabs.Length);
+                    Debug.Log(enemyIndex);
+                    // Offsets on where the enemy will spawn
+                    Vector3 offset = new Vector3(0,0,0);
+                    offset.y = enemySpawnRandimizerOne;
+                    offset.x = enemySpawnRandimizerTwo;
+                    Instantiate(enemyPrefabs[enemyIndex],spawnerPosition + offset, enemyPrefabs[enemyIndex].transform.rotation); 
                 }
-                else{
-                    offset.y = -1;
-                }
-                // Spawn Enemies
-                Instantiate(enemyPrefabs[enemyIndex],spawnerPosition + offset, enemyPrefabs[enemyIndex].transform.rotation);
-                
-                if(enemySpawnRandimizerTwo == 1){
-                    offset.x = 1;
-                }
-                else{
-                    offset.x = -1;
-                }
-                // Spawn Enemies
-                Instantiate(enemyPrefabs[enemyIndex],spawnerPosition + offset, enemyPrefabs[enemyIndex].transform.rotation);
                 timer = 0;
             }
 
