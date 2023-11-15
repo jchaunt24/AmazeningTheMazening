@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
     // Health Counter Display 
     public int health;
     public TextMeshProUGUI displayHealth;
+    public bool damageCooldown = false;
+    int savedHealth;
+    float damageCountdown;
 
     // Gamer Over and Enemy Spawning
     public GameObject gameOver;
@@ -49,15 +52,10 @@ public class GameManager : MonoBehaviour
         if(gamePaused == false){
             // Score Counter and Game Over Timer
             displayHealth.text = "Health: " + health;
-            Timer -= Time.deltaTime;
-            displayScore.text = "Score: " + score;
-            if (Timer <= 0f)
-            {
-                Timer = 1.5f;
-                if(health < 1){
+            displayScore.text = "Score: " + score;  
+            if(health < 1){
                     gameOver.SetActive(true);
                 }
-            }
         }
     }
 
@@ -66,12 +64,9 @@ public class GameManager : MonoBehaviour
         health = health + healthToChange;
         displayHealth.text = "Health: " + health;
     }
-
-
     public void AddScore(int scoreToAdd){
         score = score += scoreToAdd;
     }
-    
     // Pause and title Screen
     public void Pause(){
         gamePaused = true;

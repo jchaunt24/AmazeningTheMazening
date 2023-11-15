@@ -25,9 +25,8 @@ public class PlayerController : MonoBehaviour
 
     // Combat Related
     public float attackTimerCoolDown;
-
-    
-    
+    public bool damageCooldown;
+    public float damageTimer;
 
     void Start(){
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -75,6 +74,10 @@ public class PlayerController : MonoBehaviour
                     canMove = true;
                 }
             }
+            damageTimer -= Time.deltaTime;
+            if(damageCooldown == true&& damageTimer <= 0){
+                damageCooldown = false;
+            }
         }
     }
 
@@ -94,7 +97,12 @@ public class PlayerController : MonoBehaviour
     // Damage Script
     public void OnTriggerEnter2D(Collider2D other){
         if(other.CompareTag("Enemy")){
-           gameManager.UpdateHealth(-1);
+            if(!damageCooldown){
+                gameManager.UpdateHealth(-1);
+                damageCooldown = true;
+                damageTimer = 1;
+            }
+           
         }
         else if(other.CompareTag("Hp")){
            gameManager.UpdateHealth(2);
