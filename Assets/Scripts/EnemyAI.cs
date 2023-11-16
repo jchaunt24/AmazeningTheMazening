@@ -11,7 +11,7 @@ Project: Movement
 https://www.youtube.com/watch?v=2SXa10ILJms&t=28s
 */
 
-public class EnemyAI : MonoBehaviour
+public class EnemyAI : MonoBehaviour, IDropItem
 {
     public float speed;
     Vector2 playerPosition;
@@ -28,6 +28,7 @@ public class EnemyAI : MonoBehaviour
     public int health;
 
     public bool colliding;
+    [SerializeField]private GameObject[] drops;
 
     // Timer for Self Destruction
 
@@ -91,8 +92,7 @@ public class EnemyAI : MonoBehaviour
     public void TakeDamage(int damage){
         health -= damage;
         Debug.Log("Damage Taken!!");
-        gameManager.GetComponent<GameManager>().AddScore(5);
-        gameManager.GetComponent<GameManager>().DropItem(gameObject.transform);
+        DropItem(gameObject.transform.position);
     }
 
 
@@ -106,5 +106,13 @@ public class EnemyAI : MonoBehaviour
     void OnCollisionExit2D(){
         colliding = false;
     }
+    
+    public void DropItem(Vector3 position){
+        int randomItemNumber = Random.Range(0,2);
+        Debug.Log(randomItemNumber);
+        Instantiate(drops[randomItemNumber], position, drops[randomItemNumber].transform.rotation);
+        Debug.Log("Item Dropped");
+    }
+    
 
 }

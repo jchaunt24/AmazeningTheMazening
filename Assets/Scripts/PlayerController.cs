@@ -100,16 +100,18 @@ public class PlayerController : MonoBehaviour
             if(!damageCooldown){
                 gameManager.UpdateHealth(-1);
                 damageCooldown = true;
-                damageTimer = 1;
+                damageTimer = .5f;
             }
            
         }
         else if(other.CompareTag("Hp")){
-           gameManager.UpdateHealth(2);
+           gameManager.UpdateHealth(1);
         }
         else if(other.CompareTag("Score")){
            gameManager.AddScore(5);
         }
+        else if(other.CompareTag("gemfragment")){
+            gameManager.UpdateHealth(-3);
+        }
     }
-    
 }

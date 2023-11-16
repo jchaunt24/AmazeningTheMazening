@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 512831196351615030}
   - component: {fileID: 2169536905276824586}
   - component: {fileID: 8889442062882455548}
+  - component: {fileID: 871898972922726431}
   - component: {fileID: -1050513867032361722}
-  - component: {fileID: 1143836626450560313}
   m_Layer: 0
   m_Name: GemFragment
-  m_TagString: Enemy
+  m_TagString: gemfragment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2169536905276824586
 SpriteRenderer:
@@ -114,6 +114,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &871898972922726431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2554235066108661996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f53dd474d661bdd4c916cd90e7c596c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 2
 --- !u!61 &-1050513867032361722
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -159,15 +172,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1143836626450560313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2554235066108661996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f53dd474d661bdd4c916cd90e7c596c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

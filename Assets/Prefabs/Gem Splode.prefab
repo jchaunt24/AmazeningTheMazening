@@ -121,7 +121,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 2554235066108661996, guid: 418006342dfa7b543aa197787d67a069, type: 3}
-  thrust: 10
 --- !u!61 &1309175677645679476
 BoxCollider2D:
   m_ObjectHideFlags: 0

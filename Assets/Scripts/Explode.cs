@@ -13,6 +13,7 @@ public class Explode : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D other){
         if(other.CompareTag("Player")){
+            Debug.Log("Kaboom");
             Vector3 offset = new Vector3(0,0,0);
             offset.x = -1;
             var explodingparticle = Instantiate(projectile,explodePosition +offset, projectile.transform.rotation);

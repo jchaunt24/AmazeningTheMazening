@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - Hp
   - Score
+  - gemfragment
+  - Wall
   layers:
   - Default
   - TransparentFX

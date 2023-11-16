@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, IDropItem
 {
 /*
     Name: Jacob Chaunt          ID: 18912
@@ -54,8 +54,8 @@ public class GameManager : MonoBehaviour
             displayHealth.text = "Health: " + health;
             displayScore.text = "Score: " + score;  
             if(health < 1){
-                    gameOver.SetActive(true);
-                }
+                gameOver.SetActive(true);
+            }
         }
     }
 
@@ -78,8 +78,20 @@ public class GameManager : MonoBehaviour
         gameDisplay.SetActive(true);
         gameTitle.SetActive(false);
     }
-    public void DropItem(Transform transform){
+
+   /* public void DropItem(Transform transform){
         int randomItemNumber = Random.Range(0,2);
+        Debug.Log(randomItemNumber);
         Instantiate(drops[randomItemNumber],transform.position, drops[randomItemNumber].transform.rotation);
+        Debug.Log("Item Dropped");
+        
+    }*/
+
+    public void DropItem(Vector3 position){
+        int randomItemNumber = Random.Range(0,2);
+        Debug.Log(randomItemNumber);
+        Instantiate(drops[randomItemNumber], position, drops[randomItemNumber].transform.rotation);
+        Debug.Log("Item Dropped");
+        
     }
 }

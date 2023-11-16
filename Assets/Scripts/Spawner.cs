@@ -34,7 +34,6 @@ public class Spawner : MonoBehaviour
                     int enemySpawnRandimizerTwo = Random.Range(-2,3);
                     // Decides which enemy on the list to spawn
                     int enemyIndex = Random.Range(0,enemyPrefabs.Length);
-                    Debug.Log(enemyIndex);
                     // Offsets on where the enemy will spawn
                     Vector3 offset = new Vector3(0,0,0);
                     offset.y = enemySpawnRandimizerOne;
