@@ -8,12 +8,15 @@ public class Chest : MonoBehaviour,IDropItem
     public bool playerInRange;
     private GameManager gameManager;
     Vector3 chestPosition;
+    public Animator chestAnim;
+    public bool opening;
     [SerializeField]private GameObject[] drops;
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        
+        chestAnim = GetComponent<Animator>();
+        opening = false;
     }
 
     void OnAwake(){
@@ -23,11 +26,18 @@ public class Chest : MonoBehaviour,IDropItem
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && playerInRange){
+        if(Input.GetKeyDown(KeyCode.Space) && playerInRange && !opening){
+            opening = true;
+            chestAnim.SetTrigger("ChestOpen");
             Debug.Log($"Chest Open: {gameObject.transform.position}");
-            DropItem(gameObject.transform.position);
-            Destroy(gameObject);
+            StartCoroutine(ChestDestroy());
+            //Destroy(gameObject);
         }
+    }
+    IEnumerator ChestDestroy(){
+        yield return new WaitForSeconds(2);
+        DropItem(gameObject.transform.position);
+        Destroy(gameObject);
     }
     void OnTriggerEnter2D(Collider2D other){
         if(other.CompareTag("Player")){

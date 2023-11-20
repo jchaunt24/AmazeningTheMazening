@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/TheMaze.unity
+    guid: 4ba9caf602b9d7446b67ababd2ffaea6
+  - enabled: 1
+    path: Assets/Scenes/Desert.unity
+    guid: b0ba85531b30d1343bbaef61a4ac2638
+  - enabled: 1
+    path: Assets/Scenes/Red Desert.unity
+    guid: 73bcf41dfe569c8429087512c3833db5
   m_configObjects: {}

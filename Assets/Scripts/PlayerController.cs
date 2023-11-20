@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     void Start(){
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
+    /*
     private void Awake(){
         if(Instance == null){
             Instance = this;
@@ -40,6 +41,7 @@ public class PlayerController : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    */
 
     // Update is called once per frame
     void Update()

@@ -26,6 +26,7 @@ public class EnemyAI : MonoBehaviour, IDropItem
     //public bool targetcollision;
     public Collider2D collider;
     public int health;
+    private GameObject player;
 
     public bool colliding;
     [SerializeField]private GameObject[] drops;
@@ -35,13 +36,14 @@ public class EnemyAI : MonoBehaviour, IDropItem
     public float timer;
     void Start(){
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        player = GameObject.Find("Player");
     }
         
     // Update is called once per frame
     void Update()
     {
         if(gameManager.gamePaused == false){
-            playerPosition = PlayerController.Instance.transform.position;
+            playerPosition = player.gameObject.transform.position;
             enemyposition = transform.position;
             distance = Vector2.Distance(enemyposition, playerPosition);
             Vector2 direction = enemyposition - playerPosition;
