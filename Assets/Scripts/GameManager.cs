@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour, IDropItem
 {
@@ -15,35 +16,54 @@ public class GameManager : MonoBehaviour, IDropItem
     // Start is called before the first frame update
 
     // Score Counter Display
-    public int score;
+    public static int score;
     public TextMeshProUGUI displayScore;
 
     // Health Counter Display 
-    public int health;
+    public static int health;
     public TextMeshProUGUI displayHealth;
     public bool damageCooldown = false;
     int savedHealth;
     float damageCountdown;
+    public GameObject player;
+    //public static GameManager Instance;
 
     // Gamer Over and Enemy Spawning
     public GameObject gameOver;
     public float Timer;
     public GameObject gameDisplay;
     public GameObject gameTitle;
+    public string gameScene;
     // Enemt Prefab List
     public GameObject[] enemyPrefabs;
     public GameObject[] drops;
 
     // Game Paused
     public bool gamePaused = false; 
-
+    /*
+    private void Awake(){
+        if(Instance != null){
+            return;
+        }
+        // end of the new code
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+    */
     void Start()
     {  
         // States what the Original Values are to the player
         health = 10;
         displayScore.text = "Score: " + score;
         displayHealth.text = "Health: " + health;
-        gamePaused = true;
+        if(gameScene == "TheMaze"){
+            gamePaused = true;
+            Debug.Log("TheMaze");
+        }
+        else{
+            gamePaused = false;
+            Debug.Log("Other");
+        }
     }
 
     // Update is called once per frame
@@ -93,5 +113,9 @@ public class GameManager : MonoBehaviour, IDropItem
         Instantiate(drops[randomItemNumber], position, drops[randomItemNumber].transform.rotation);
         Debug.Log("Item Dropped");
         
+    }
+    public void Teleport(Vector3 transform,string nextScene){
+        SceneManager.LoadScene(nextScene, LoadSceneMode.Single);
+        player.transform.position = transform;
     }
 }

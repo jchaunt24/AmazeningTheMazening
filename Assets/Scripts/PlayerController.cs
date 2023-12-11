@@ -57,11 +57,9 @@ public class PlayerController : MonoBehaviour
 
             // only one input per axis of movement at one time
             if((movement.x == 1) || (movement.x == -1)){
-                movement.y = 0;
                 animator.SetFloat("Vertical", 0);
             }
             else{
-                movement.x = 0;
                 animator.SetFloat("Horizontal", 0);
             }
             // Attacking and Not Moving Code
