@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneSwitcher : MonoBehaviour
 {
     public string nextScene;
-    private Vector3 locationToTeleport;
+    public static Vector3 locationToTeleport;
     public GameManager gameManager;
     // Start is called before the first frame update
     void Start()

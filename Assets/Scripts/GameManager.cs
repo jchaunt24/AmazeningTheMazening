@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour, IDropItem
     // Score Counter Display
     public static int score;
     public TextMeshProUGUI displayScore;
+    public Vector3 savedTransform;
 
     // Health Counter Display 
     public static int health;
@@ -40,16 +41,8 @@ public class GameManager : MonoBehaviour, IDropItem
 
     // Game Paused
     public bool gamePaused = false; 
-    /*
-    private void Awake(){
-        if(Instance != null){
-            return;
-        }
-        // end of the new code
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
-    */
+    public static bool Loaded = false;
+    
     void Start()
     {  
         // States what the Original Values are to the player
@@ -64,11 +57,17 @@ public class GameManager : MonoBehaviour, IDropItem
             gamePaused = false;
             Debug.Log("Other");
         }
+        if(Loaded){
+            gameDisplay.SetActive(true);
+            gameTitle.SetActive(false);
+            gamePaused = false;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if(gamePaused == false){
             // Score Counter and Game Over Timer
             displayHealth.text = "Health: " + health;
@@ -97,6 +96,19 @@ public class GameManager : MonoBehaviour, IDropItem
         gamePaused = false;
         gameDisplay.SetActive(true);
         gameTitle.SetActive(false);
+        Loaded = true;
+    }
+    public void Controls(){
+
+    }
+    public void Exit(){
+        Application.Quit();
+    }
+    public void Restart(){
+        health = 10;
+        score = 0;
+        Loaded = false;
+        SceneManager.LoadScene(0,LoadSceneMode.Single);
     }
 
    /* public void DropItem(Transform transform){
@@ -115,7 +127,7 @@ public class GameManager : MonoBehaviour, IDropItem
         
     }
     public void Teleport(Vector3 transform,string nextScene){
-        SceneManager.LoadScene(nextScene, LoadSceneMode.Single);
         player.transform.position = transform;
+        SceneManager.LoadScene(nextScene, LoadSceneMode.Single);
     }
 }
