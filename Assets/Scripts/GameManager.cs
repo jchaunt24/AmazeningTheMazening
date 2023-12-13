@@ -34,6 +34,10 @@ public class GameManager : MonoBehaviour, IDropItem
     public float Timer;
     public GameObject gameDisplay;
     public GameObject gameTitle;
+    public GameObject gameControls;
+    public GameObject exitButton;
+    public GameObject playButton;
+    public GameObject controlButton;
     public string gameScene;
     // Enemt Prefab List
     public GameObject[] enemyPrefabs;
@@ -93,6 +97,10 @@ public class GameManager : MonoBehaviour, IDropItem
         gamePaused = true;
         gameDisplay.SetActive(false);
         gameTitle.SetActive(true);
+        gameControls.SetActive(false);
+        exitButton.SetActive(true);
+        playButton.SetActive(true);
+        controlButton.SetActive(true);
     }
     public void Play(){
         gamePaused = false;
@@ -101,7 +109,10 @@ public class GameManager : MonoBehaviour, IDropItem
         Loaded = true;
     }
     public void Controls(){
-
+        gameControls.SetActive(true);
+        exitButton.SetActive(false);
+        playButton.SetActive(false);
+        controlButton.SetActive(false);
     }
     public void Exit(){
         Application.Quit();
