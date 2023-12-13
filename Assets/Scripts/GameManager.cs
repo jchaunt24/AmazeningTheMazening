@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour, IDropItem
     void Start()
     {  
         // States what the Original Values are to the player
-        health = 10;
+        health = 25;
         displayScore.text = "Score: " + score;
         displayHealth.text = "Health: " + health;
         if(gameScene == "TheMaze"){
@@ -67,7 +67,9 @@ public class GameManager : MonoBehaviour, IDropItem
     // Update is called once per frame
     void Update()
     {
-        
+        if(health >= 50){
+            health = 50;
+        }
         if(gamePaused == false){
             // Score Counter and Game Over Timer
             displayHealth.text = "Health: " + health;
@@ -126,8 +128,7 @@ public class GameManager : MonoBehaviour, IDropItem
         Debug.Log("Item Dropped");
         
     }
-    public void Teleport(Vector3 transform,string nextScene){
-        player.transform.position = transform;
+    public void Teleport(string nextScene){
         SceneManager.LoadScene(nextScene, LoadSceneMode.Single);
     }
 }

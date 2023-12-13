@@ -12,7 +12,6 @@ public class SceneSwitcher : MonoBehaviour
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        locationToTeleport = gameObject.transform.position;
     }
 
     // Update is called once per frame
@@ -27,7 +26,7 @@ public class SceneSwitcher : MonoBehaviour
         }
         */
         if(other.CompareTag("Player")){
-            gameManager.Teleport(locationToTeleport, nextScene);
+            gameManager.Teleport(nextScene);
         }
     }
 }
