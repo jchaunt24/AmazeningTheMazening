@@ -79,6 +79,12 @@ public class PlayerController : MonoBehaviour
                 damageCooldown = false;
             }
         }
+        if(gameManager.dying){
+            animator.SetFloat("Vertical", 0);
+            animator.SetFloat("Horizontal", 0);
+            animator.SetTrigger("Death");
+            gameManager.dying = false;
+        }
     }
 
     // moves player during the set frames

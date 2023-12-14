@@ -21,12 +21,12 @@ public class GameManager : MonoBehaviour, IDropItem
     public Vector3 savedTransform;
 
     // Health Counter Display 
-    public static int health;
-    public TextMeshProUGUI displayHealth;
+    public static float health;
     public bool damageCooldown = false;
     int savedHealth;
     float damageCountdown;
     public GameObject player;
+    public Image HealthBar;
     //public static GameManager Instance;
 
     // Gamer Over and Enemy Spawning
@@ -39,9 +39,11 @@ public class GameManager : MonoBehaviour, IDropItem
     public GameObject playButton;
     public GameObject controlButton;
     public string gameScene;
+    public bool dying;
     // Enemt Prefab List
     public GameObject[] enemyPrefabs;
     public GameObject[] drops;
+    
 
     // Game Paused
     public bool gamePaused = false; 
@@ -52,7 +54,6 @@ public class GameManager : MonoBehaviour, IDropItem
         // States what the Original Values are to the player
         health = 25;
         displayScore.text = "Score: " + score;
-        displayHealth.text = "Health: " + health;
         if(gameScene == "TheMaze"){
             gamePaused = true;
             Debug.Log("TheMaze");
@@ -71,23 +72,32 @@ public class GameManager : MonoBehaviour, IDropItem
     // Update is called once per frame
     void Update()
     {
-        if(health >= 50){
-            health = 50;
-        }
+        HealthBar.fillAmount = health / 50; 
+        
         if(gamePaused == false){
             // Score Counter and Game Over Timer
-            displayHealth.text = "Health: " + health;
             displayScore.text = "Score: " + score;  
             if(health < 1){
-                gameOver.SetActive(true);
+                gamePaused = true;
+                StartCoroutine(GameOverAnim());
             }
         }
+    }
+    // Player Gameover Animation
+    IEnumerator GameOverAnim(){
+        dying = true;
+        
+        yield return new WaitForSeconds(8);
+        gameOver.SetActive(true);
+        
     }
 
     // Player Health System
     public void UpdateHealth(int healthToChange){
         health = health + healthToChange;
-        displayHealth.text = "Health: " + health;
+        health = Mathf.Clamp(health, 0, 50);
+        HealthBar.fillAmount = health / 50; 
+
     }
     public void AddScore(int scoreToAdd){
         score = score += scoreToAdd;
@@ -118,7 +128,8 @@ public class GameManager : MonoBehaviour, IDropItem
         Application.Quit();
     }
     public void Restart(){
-        health = 10;
+        health = 25;
+        HealthBar.fillAmount = health / 50; 
         score = 0;
         Loaded = false;
         SceneManager.LoadScene(0,LoadSceneMode.Single);
