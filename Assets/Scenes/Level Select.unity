@@ -958,7 +958,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &286207385
 Transform:
   m_ObjectHideFlags: 0
@@ -1306,7 +1306,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &368175756
 Transform:
   m_ObjectHideFlags: 0
@@ -8016,7 +8016,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1134790216}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0d1bc78fd2eede447bb911779e8a08c1, type: 3}
@@ -8269,7 +8269,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayScore: {fileID: 243808527}
-  savedTransform: {x: 0, y: 0, z: 0}
   damageCooldown: 0
   player: {fileID: 1134790216}
   HealthBar: {fileID: 167875654}
@@ -10468,7 +10467,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1966419620
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10760,8 +10759,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 286207385}
   - {fileID: 368175756}
+  - {fileID: 286207385}
   - {fileID: 554490989}
   - {fileID: 1117737624}
   - {fileID: 1515091826}

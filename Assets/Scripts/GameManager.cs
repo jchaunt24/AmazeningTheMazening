@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour, IDropItem
     // Score Counter Display
     public static int score;
     public TextMeshProUGUI displayScore;
-    public Vector3 savedTransform;
 
     // Health Counter Display 
     public static float health;
