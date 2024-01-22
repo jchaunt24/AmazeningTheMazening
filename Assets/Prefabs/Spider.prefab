@@ -131,8 +131,9 @@ MonoBehaviour:
   health: 1
   colliding: 0
   drops:
-  - {fileID: 4308557167556939244, guid: 85371eaa487d9414d8e731a7b579f2a6, type: 3}
-  - {fileID: 4308557167556939244, guid: 85371eaa487d9414d8e731a7b579f2a6, type: 3}
+  - {fileID: 2166716126178475829, guid: 40bc381accf6ec74db58d5db147bd239, type: 3}
+  - {fileID: 2166716126178475829, guid: 40bc381accf6ec74db58d5db147bd239, type: 3}
+  - {fileID: 2166716126178475829, guid: 40bc381accf6ec74db58d5db147bd239, type: 3}
   timer: 0
 --- !u!61 &7028599460047641449
 BoxCollider2D:

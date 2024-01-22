@@ -26,6 +26,12 @@ public class GameManager : MonoBehaviour, IDropItem
     float damageCountdown;
     public GameObject player;
     public Image HealthBar;
+
+    public Image WoodBar;
+    public Image SilkBar;
+    public float silk;
+    public float wood;
+
     //public static GameManager Instance;
 
     // Gamer Over and Enemy Spawning
@@ -51,7 +57,9 @@ public class GameManager : MonoBehaviour, IDropItem
     void Start()
     {  
         // States what the Original Values are to the player
-        health = 25;
+        health = 50;
+        wood = 0;
+        silk = 0;
         displayScore.text = "Score: " + score;
         if(gameScene == "TheMaze"){
             gamePaused = true;
@@ -101,6 +109,16 @@ public class GameManager : MonoBehaviour, IDropItem
     public void AddScore(int scoreToAdd){
         score = score += scoreToAdd;
     }
+    public void UpdateWood(){
+        wood = wood + 1;
+        wood = Mathf.Clamp(wood,0,10);
+        WoodBar.fillAmount = wood / 10;
+    }
+   public void UpdateSilk(){
+        silk = silk + 1;
+        silk = Mathf.Clamp(silk,0,10);
+        SilkBar.fillAmount = silk / 10;
+    }
     // Pause and title Screen
     public void Pause(){
         gamePaused = true;
@@ -134,13 +152,7 @@ public class GameManager : MonoBehaviour, IDropItem
         SceneManager.LoadScene(0,LoadSceneMode.Single);
     }
 
-   /* public void DropItem(Transform transform){
-        int randomItemNumber = Random.Range(0,2);
-        Debug.Log(randomItemNumber);
-        Instantiate(drops[randomItemNumber],transform.position, drops[randomItemNumber].transform.rotation);
-        Debug.Log("Item Dropped");
-        
-    }*/
+
 
     public void DropItem(Vector3 position){
         int randomItemNumber = Random.Range(0,2);

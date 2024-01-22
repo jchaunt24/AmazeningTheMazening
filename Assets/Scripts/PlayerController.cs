@@ -119,5 +119,11 @@ public class PlayerController : MonoBehaviour
         else if(other.CompareTag("gemfragment")){
             gameManager.UpdateHealth(-3);
         }
+        else if(other.CompareTag("Wood")){
+            gameManager.UpdateWood();
+        }
+        else if(other.CompareTag("Silk")){
+            gameManager.UpdateSilk();
+        }
     }
 }
