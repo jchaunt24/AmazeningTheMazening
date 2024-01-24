@@ -11,6 +11,7 @@ TagManager:
   - Wall
   - Wood
   - Silk
+  - water
   layers:
   - Default
   - TransparentFX
