@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     public float attackTimerCoolDown;
     public bool damageCooldown;
     public float damageTimer;
+    public GameObject Raft;
 
     void Start(){
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -125,5 +126,11 @@ public class PlayerController : MonoBehaviour
         else if(other.CompareTag("Silk")){
             gameManager.UpdateSilk();
         }
+        else if(other.CompareTag("water")){
+            Raft.SetActive(true);
+        }
+    }
+    public void OnTriggerExit2D(Collider2D other){
+        Raft.SetActive(false);
     }
 }
