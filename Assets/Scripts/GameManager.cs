@@ -29,8 +29,12 @@ public class GameManager : MonoBehaviour, IDropItem
 
     public Image WoodBar;
     public Image SilkBar;
+
     public float silk;
     public float wood;
+
+    public Image Scroll;
+    public float scroll;
 
     //public static GameManager Instance;
 
