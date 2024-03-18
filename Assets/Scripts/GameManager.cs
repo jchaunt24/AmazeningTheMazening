@@ -33,8 +33,12 @@ public class GameManager : MonoBehaviour, IDropItem
     public float silk;
     public float wood;
 
-    public Image Scroll;
+    public Image ScrollBar;
     public float scroll;
+
+    public Image BossBar;
+    public float boss;
+    public GameObject BossEntity;
 
     //public static GameManager Instance;
 
@@ -123,6 +127,16 @@ public class GameManager : MonoBehaviour, IDropItem
         silk = Mathf.Clamp(silk,0,10);
         SilkBar.fillAmount = silk / 10;
     }
+    public void UpdateScroll(){
+        scroll = scroll + 1;
+        ScrollBar.fillAmount = scroll / 1;
+    }
+    public void UpdateBoss(){
+        boss = boss + 1;
+        BossBar.fillAmount = boss / 1;
+    }
+
+    
     // Pause and title Screen
     public void Pause(){
         gamePaused = true;

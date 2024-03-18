@@ -12,6 +12,7 @@ TagManager:
   - Wood
   - Silk
   - water
+  - Scroll
   layers:
   - Default
   - TransparentFX
