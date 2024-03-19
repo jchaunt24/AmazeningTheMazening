@@ -63,8 +63,13 @@ public class EnemyAI : MonoBehaviour, IDropItem
                     transform.position = Vector2.MoveTowards(enemyposition, playerPosition,speed *Time.deltaTime);
                 }
             }
+            else if(enemyID == 4){
+                if(distance < 10){
+                    transform.position = Vector2.MoveTowards(enemyposition, playerPosition,speed *Time.deltaTime);
+                }
+            }
             timer += Time.deltaTime;
-            if(enemyID != 3){
+            if(enemyID > 3){
                 if(timer >= 30){
                     Destroy(gameObject);
                 }
@@ -86,6 +91,9 @@ public class EnemyAI : MonoBehaviour, IDropItem
                 }
                 if(enemyID == 3){
                     speed = .5f;
+                }
+                if(enemyID == 4){
+                    speed = 10f;
                 }
             }
         }
