@@ -97,6 +97,9 @@ public class GameManager : MonoBehaviour, IDropItem
                 StartCoroutine(GameOverAnim());
             }
         }
+        if(wood == 10 && silk == 10 && scroll == 1 && boss == 1){
+            
+        }
     }
     // Player Gameover Animation
     IEnumerator GameOverAnim(){

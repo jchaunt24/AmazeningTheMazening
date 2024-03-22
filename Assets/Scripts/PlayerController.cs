@@ -134,6 +134,9 @@ public class PlayerController : MonoBehaviour
             gameManager.UpdateScroll();
             Debug.Log("Fun");
         }
+        else if(other.CompareTag("Trophy")){
+            gameManager.UpdateBoss();
+        }
     }
     public void OnTriggerExit2D(Collider2D other){
         Raft.SetActive(false);
