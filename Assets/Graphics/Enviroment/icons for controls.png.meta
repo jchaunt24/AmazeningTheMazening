@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2f2e76db6bda6024ea918053cdfb380e
+guid: e539fc5980fd5dd4d8cdbe5bfdac3eb4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 50
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -147,7 +147,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: icons for controls_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3a546ecdaf4e174b9129ddc60aa6451
+      internalID: 811908091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icons for controls_1
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e432f57a711f5f14c8c5f26da23809b4
+      internalID: -1308897465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icons for controls_2
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 935ec05f864c56e41a893c756e84b8f5
+      internalID: -1607021810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icons for controls_3
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b86808534cf2f9944b445908e075a563
+      internalID: -1435412431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icons for controls_4
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bf794068cea2ed45bd341df32d7fbab
+      internalID: 1925422634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icons for controls_5
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa9e6e2e614a9bb49bea72eb5a9cfa94
+      internalID: -665302564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -158,7 +284,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      icons for controls_0: 811908091
+      icons for controls_1: -1308897465
+      icons for controls_2: -1607021810
+      icons for controls_3: -1435412431
+      icons for controls_4: 1925422634
+      icons for controls_5: -665302564
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

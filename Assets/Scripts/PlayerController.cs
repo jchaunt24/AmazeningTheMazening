@@ -127,8 +127,9 @@ public class PlayerController : MonoBehaviour
             gameManager.UpdateSilk();
         }
         else if(other.CompareTag("water")){
-            if((gameManager.silk == 10) && (gameManager.wood == 10))
-            Raft.SetActive(true);
+            if((gameManager.silk == 10) && (gameManager.wood == 10)){
+                Raft.SetActive(true);
+            }
         }
         else if(other.CompareTag("Scroll")){
             gameManager.UpdateScroll();
