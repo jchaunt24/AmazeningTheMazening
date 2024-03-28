@@ -8,7 +8,7 @@ public class PickUps : MonoBehaviour
 
     void Update(){
         timer += Time.deltaTime;
-        if(timer >= 5){
+        if(timer >= 10){
             Destroy(gameObject);
         }
     }
